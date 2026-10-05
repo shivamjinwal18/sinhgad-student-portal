@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Year Student Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f5fa;
+    color: #222;
+}
+
+header {
+    background: #173b70;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 27px;
+}
+
+header p {
+    margin-top: 8px;
+    color: #dce8ff;
+}
+
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000012;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 10px;
+    color: #173b70;
+}
+
+.login-box p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    background: white;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2166c2;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #174b94;
+}
+
+#result {
+    display: none;
+    margin-top: 25px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.info-card {
+    background: #edf4ff;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+}
+
+.info-card h3 {
+    color: #173b70;
+    margin-bottom: 8px;
+}
+
+.notice {
+    background: #fff4d9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    background: #173b70;
+    color: white;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 First Year Student Portal</h1>
+    <p>Your Academic Information at One Place</p>
+</header>
+
+<div class="container">
+
+<div class="login-box">
+
+    <h2>Welcome, Student!</h2>
+    <p>Enter your details to access academic information.</p>
+
+    <select id="division">
+        <option value="">Select Division</option>
+        <option value="A">Division A</option>
+        <option value="B">Division B</option>
+        <option value="C">Division C</option>
+        <option value="D">Division D</option>
+    </select>
+
+    <input type="number" id="roll"
+    placeholder="Enter Roll Number" min="1">
+
+    <button onclick="getInfo()">Get Information</button>
+
+    <div id="result">
+        <h2>Student Dashboard</h2>
+        <p id="student"></p>
+
+        <div class="info-card">
+            <h3>📚 Syllabus</h3>
+            <p>First Year Semester Syllabus</p>
+            <p>Mathematics, Physics, Chemistry, Programming and other subjects.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>📝 Examination Criteria</h3>
+            <p>Internal Assessment</p>
+            <p>Semester Examination</p>
+            <p>Practical Examination</p>
+        </div>
+
+        <div class="info-card">
+            <h3>📅 Exam Updates</h3>
+            <p>Check the latest examination schedule through college announcements.</p>
+        </div>
+
+        <div class="notice">
+            <h3>📢 Important Notice</h3>
+            <p>Please check your college notice board for official updates.</p>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<footer>
+    <p>© 2026 First Year Student Portal</p>
+    <p>Designed for First Year Students</p>
+</footer>
+
+<script>
+function getInfo() {
+    let division = document.getElementById("division").value;
+    let roll = document.getElementById("roll").value;
+
+    if (division === "" || roll === "" || Number(roll) < 1) {
+        alert("Please enter a valid division and roll number!");
+        return;
+    }
+
+    document.getElementById("student").innerHTML =
+        "Division: " + division + " | Roll Number: " + roll;
+
+    document.getElementById("result").style.display = "block";
+}
+</script>
+
+</body>
+</html>
